@@ -22,6 +22,7 @@ local corner = Instance.new("UICorner")
 FPS.Name = "FPS_GUI"
 FPS.Parent = CoreGui
 FPS.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FPS.IgnoreGuiInset = true
 
 fps_counter.Name = "FPS_COUNTER"
 fps_counter.Parent = FPS
@@ -29,7 +30,7 @@ fps_counter.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 fps_counter.BackgroundTransparency = 0.500
 fps_counter.BorderSizePixel = 0
 fps_counter.TextColor3 = Color3.fromRGB(255 , 255 , 255)
-fps_counter.Position = UDim2.new(0, 104, 0, -32)
+fps_counter.Position = UDim2.new(0.45, 0, 0, 0.2)
 fps_counter.Size = UDim2.new(0, 75, 0, 32)
 fps_counter.Font = Enum.Font.Gotham
 fps_counter.Text = "FPS | 60"
