@@ -18,13 +18,13 @@ if CoreGui:WaitForChild("mshx") then
 	mshx = CoreGui:WaitForChild("mshx")
 	if mshx:FindFirstChild("Background") then
 		background = mshx:WaitForChild("Background")
-		
+
 		if background:FindFirstChild("truth") then
 			GradientParent = background:WaitForChild("truth")
 		else
 			error("no mshx.Background.truth!")
 		end
-		
+
 		if background:FindFirstChild("Output") then
 			output = background:WaitForChild("Output")
 		else
@@ -44,14 +44,14 @@ local OutputSF = Instance.new("ScrollingFrame" , output)
 OutputSF.Parent = output
 OutputSF.Name = "OutputScrollingFrame"
 OutputSF.BackgroundTransparency = 1
-OutputSF.Size = UDim2.new(1 , 0 , 1 , 0)
+OutputSF.Size = UDim2.new(1 , -15 , 1 , -15)
 
 Instance.new("UIListLayout", OutputSF).Parent = OutputSF
 
 function createoutput(text , colorstr)
 	if OutputSF == nil then error("createouput - no output scrolling frame!") return end
 	if tostring(text) == nil then error("createouput - text cannot be tostring()!") return end
-	
+
 	local UsedColor = Colors[colorstr] ~= nil and Colors[colorstr] or Colors["unexpected"]
 
 	local NewOutput = Instance.new("TextLabel" , OutputSF)
@@ -65,13 +65,13 @@ function createoutput(text , colorstr)
 	NewOutput.TextWrapped = true
 	NewOutput.TextXAlignment = Enum.TextXAlignment.Left
 	NewOutput.TextYAlignment = Enum.TextYAlignment.Top
-	
+
 	UsedLayoutOrder = UsedLayoutOrder + 1
 end
 
 function resetoutput()
 	if OutputSF == nil then error("resetoutput - no output scrolling frame!") return end
-	
+
 	UsedLayoutOrder = 1
 	for index, value in next, OutputSF:GetChildren() do
 		if value:IsA("TextLabel") or value:IsA("TextBox") then
